@@ -6,7 +6,7 @@
         <p-inputMask
           styleClass="form-input"
           mask="999.999.999-99"
-          [(ngModel)]="username"
+          [(ngModel)]="cpf"
           placeholder="Digite seu CPF">
         </p-inputMask>
 
@@ -23,13 +23,15 @@
         <p-button
           label="Login"
           icon="pi pi-check"
-          styleClass="p-button-primary form-button">
+          styleClass="p-button-primary form-button"
+          (onClick)="onLogin()">
         </p-button>
 
         <p-button
           label="Cadastrar"
           icon="pi pi-user-plus"
-          styleClass="p-button-secondary form-button">
+          styleClass="p-button-secondary form-button"
+          (onClick)="registerUser()">
         </p-button>
       </div>
     </div>

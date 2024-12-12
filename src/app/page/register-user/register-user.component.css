@@ -1,0 +1,112 @@
+/* Estilos gerais */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Remove a barra de rolagem */
+  background-image: url('/assets/imagem/Registration.jpg'); /* Substitua pelo caminho da sua imagem */
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Container principal */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Card de login */
+.home-card {
+  background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+/* Título do card */
+.home-title {
+  margin-bottom: 20px;
+}
+
+/* Container do formulário */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Grupo de inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilo dos inputs */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+
+/* Grupo de botões */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+p-button {
+  flex: 1; /* Faz com que os botões se ajustem proporcionalmente */
+}
+
+/* Estilo dos botões */
+.p-button-register, .p-button-cancel {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
+::ng-deep .button-return-login {
+  background-color: #0476f8 !important; /* Cor de fundo */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+/* Adiciona efeito de hover para o botão Cancel */
+::ng-deep .button-return-login:hover {
+  background-color: #0357ad !important; /* Cor mais escura ao passar o mouse */
+}
+
+/* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
+::ng-deep .button-register {
+  background-color: #22cb18 !important; /* Cor de fundo */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+/* Adiciona efeito de hover para o botão Cancel */
+::ng-deep .button-register:hover {
+  background-color: #286c25 !important; /* Cor mais escura ao passar o mouse */
+}
+
+/* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
+::ng-deep .button-cancel {
+  background-color: #dc3545 !important; /* Cor de fundo */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+/* Adiciona efeito de hover para o botão Cancel */
+::ng-deep .button-cancel:hover {
+  background-color: #911e2c !important; /* Cor mais escura ao passar o mouse */
+}

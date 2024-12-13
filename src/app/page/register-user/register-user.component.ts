@@ -7,6 +7,7 @@ import {PasswordModule} from "primeng/password";
 import {ToastModule} from "primeng/toast";
 import {Router} from "@angular/router";
 import {MessageService} from "primeng/api";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-register-user',
@@ -17,7 +18,8 @@ import {MessageService} from "primeng/api";
     InputTextModule,
     PaginatorModule,
     PasswordModule,
-    ToastModule
+    ToastModule,
+    NgIf
   ],
   templateUrl: './register-user.component.html',
   styleUrl: './register-user.component.css'
@@ -26,8 +28,16 @@ export class RegisterUserComponent {
   cpf: string='';
   password: string='';
   nome: string='';
-  nascimento: any;
+  nascimento: string='';
   confirmPassword: string='';
+  imageSrc: any;
+  telefone: string='';
+  email: string='';
+  address: string='';
+  cidade: string='';
+  estado: string='';
+  cep: string='';
+  addressComplement: string='';
 
   constructor(private router: Router, private messageService: MessageService) {}
 
@@ -43,4 +53,5 @@ export class RegisterUserComponent {
   returnLogin() {
     this.router.navigate(['/login']);
   }
+
 }

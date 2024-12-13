@@ -1,112 +1,162 @@
-/* Estilos gerais */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; /* Remove a barra de rolagem */
-  background-image: url('/assets/imagem/Registration.jpg'); /* Substitua pelo caminho da sua imagem */
-  background-size: cover;
-  background-position: center;
-  font-family: Arial, sans-serif;
-}
-
-/* Container principal */
-.home-container {
+.register-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  background-image: url('/assets/imagem/Registration.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
-/* Card de login */
-.home-card {
-  background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  text-align: center;
+.register-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;  /* Reduzido de 100% para 90% */
+  height: 90%;
+  max-width: 1200px;  /* Reduzido de 400px para 350px */
+  display: flex;           /* Adiciona display flex */
+  flex-direction: column;  /* Organiza os elementos em coluna */
+  align-items: center;     /* Centraliza os elementos horizontalmente */
 }
 
-/* Título do card */
-.home-title {
-  margin-bottom: 20px;
-}
-
-/* Container do formulário */
 .form-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  width: 100%;
 }
 
-/* Grupo de inputs */
+.input-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.input-field {
+  flex: 1;
+  min-width: 0; /* Importante para evitar overflow */
+}
+
+/* Ajuste para garantir que os inputs do PrimeNG ocupem toda a largura */
+:host ::ng-deep .input-field .p-inputtext,
+:host ::ng-deep .input-field .p-password,
+:host ::ng-deep .input-field .p-inputmask {
+  width: 100% !important;
+}
+
+/* Ajuste específico para o componente p-password */
+:host ::ng-deep .p-password {
+  width: 100% !important;
+  display: block;
+}
+
+:host ::ng-deep .p-password-input {
+  width: 100% !important;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  .input-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+}
+
+
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: 70%; /*Aumenta o Tamanho do card das informações*/
 }
 
-/* Estilo dos inputs */
 .form-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  width: 100% !important;
+  height: 40px;
 }
 
-
-
-/* Grupo de botões */
 .button-group {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-p-button {
-  flex: 1; /* Faz com que os botões se ajustem proporcionalmente */
-}
-
-/* Estilo dos botões */
-.p-button-register, .p-button-cancel {
+  gap: 1rem;
   width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  justify-content: center;
+  margin-left: 1px;
+  margin-right: 15px;
+
 }
 
-/* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
+.form-button {
+  flex: 1;
+  min-width: 80px;  /* Reduzido de 120px para 100px */
+  max-width: 150px;  /* Adicionado max-width para controle */
+}
+
+/* Sobrescrevendo estilos do PrimeNG para garantir consistência */
+:host ::ng-deep .p-inputtext {
+  width: 100%;
+}
+
+:host ::ng-deep .p-button {
+  width: 100%;
+}
+
+/* Estilos para o botão */
 ::ng-deep .button-return-login {
-  background-color: #0476f8 !important; /* Cor de fundo */
+  background-color: #0476f8 !important; /* Cor de fundo*/
   color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
-/* Adiciona efeito de hover para o botão Cancel */
+/* Adiciona efeito de hover para o botão*/
 ::ng-deep .button-return-login:hover {
-  background-color: #0357ad !important; /* Cor mais escura ao passar o mouse */
+  background-color: #1a60af !important; /* Cor mais escura ao passar o mouse */
 }
 
-/* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
+/* Estilos para o botão */
 ::ng-deep .button-register {
-  background-color: #22cb18 !important; /* Cor de fundo */
+  background-color: #22cb18 !important; /* Cor de fundo*/
   color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
-/* Adiciona efeito de hover para o botão Cancel */
+/* Adiciona efeito de hover para o botão*/
 ::ng-deep .button-register:hover {
-  background-color: #286c25 !important; /* Cor mais escura ao passar o mouse */
+  background-color: #417f29 !important; /* Cor mais escura ao passar o mouse */
 }
 
-/* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
+/* Estilos para o botão */
 ::ng-deep .button-cancel {
-  background-color: #dc3545 !important; /* Cor de fundo */
+  background-color: #ea0921 !important; /* Cor de fundo*/
   color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
-/* Adiciona efeito de hover para o botão Cancel */
+/* Adiciona efeito de hover para o botão*/
 ::ng-deep .button-cancel:hover {
-  background-color: #911e2c !important; /* Cor mais escura ao passar o mouse */
+  background-color: #af0a0a !important; /* Cor mais escura ao passar o mouse */
+}
+
+/* Media queries para ajuste responsivo */
+@media (max-width: 400px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .form-button {
+    max-width: 100%;
+  }
 }

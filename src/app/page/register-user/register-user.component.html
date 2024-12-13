@@ -1,13 +1,58 @@
-<div class="home-container">
-  <div class="home-card">
-    <h2 class="home-title">Login</h2>
-    <div class="form-container" >
+<div class="register-container">
+  <div class="register-card">
+    <h2 class="register-title">Register User</h2>
+    <div class="form-container">
       <div class="input-group">
-        <input type="text" pInputText [(ngModel)]="nome" placeholder="Digite seu Nome" class="form-input">
-        <p-inputMask styleClass="form-input" mask="999.999.999-99" [(ngModel)]="cpf" placeholder="Digite seu CPF"></p-inputMask>
-        <p-inputMask styleClass="primelabels" [(ngModel)]="nascimento" mask="99/99/9999" placeholder="Digite seu Nascimento" slotChar="dd/mm/yyyy"></p-inputMask>
-        <p-password styleClass="p-password-input" [(ngModel)]="password" [toggleMask]="true" placeholder="Digite sua Senha" />
-        <p-password styleClass="p-password-input" [(ngModel)]="confirmPassword" [toggleMask]="true" placeholder="Confirme sua Senha" />
+        <!-- Grupo Nome e CPF -->
+        <div class="input-row">
+          <div class="input-field">
+            <input type="text" pInputText [(ngModel)]="nome" placeholder="Digite seu Nome" class="form-input">
+          </div>
+          <div class="input-field">
+            <p-inputMask styleClass="form-input" mask="999.999.999-99" [(ngModel)]="cpf" placeholder="Digite seu CPF"></p-inputMask>
+          </div>
+        </div>
+        <!-- Grupo Nascimento, Telefone e Email -->
+        <div class="input-row">
+          <div class="input-field">
+            <p-inputMask styleClass="primelabels" [(ngModel)]="nascimento" mask="99/99/9999" placeholder="Digite seu Nascimento" slotChar="dd/mm/yyyy"></p-inputMask>
+          </div>
+          <div class="input-field">
+            <p-inputMask styleClass="form-input" mask="(99)9 9999-9999" [(ngModel)]="telefone" placeholder="Digite seu Telefone"></p-inputMask>
+          </div>
+          <div class="input-field">
+            <input type="text" pInputText [(ngModel)]="email" placeholder="Digite seu e-mail" class="form-input">
+          </div>
+        </div>
+        <!-- Senhas -->
+        <div class="input-row">
+          <div class="input-field">
+            <p-password styleClass="p-password-input" [(ngModel)]="password" [toggleMask]="true" placeholder="Digite sua Senha" />
+          </div>
+          <div class="input-field">
+            <p-password styleClass="p-password-input" [(ngModel)]="confirmPassword" [toggleMask]="true" placeholder="Confirme sua Senha" />
+          </div>
+        </div>
+        <!-- Endereço -->
+        <div class="input-row">
+          <div class="input-field">
+            <input type="text" pInputText [(ngModel)]="address" placeholder="Digite seu Endereço" class="form-input">
+          </div>
+          <div class="input-field">
+            <input type="text" pInputText [(ngModel)]="addressComplement" placeholder="Digite o complemento do endereço" class="form-input">
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-field">
+            <input type="text" pInputText [(ngModel)]="cidade" placeholder="Digite sua Cidade" class="form-input">
+          </div>
+          <div class="input-field">
+            <input type="text" pInputText [(ngModel)]="estado" placeholder="Digite seu Estado" class="form-input">
+          </div>
+          <div class="input-field">
+            <input type="text" pInputText [(ngModel)]="cep" placeholder="Digite seu CEP" class="form-input">
+          </div>
+        </div>
       </div>
       <div class="button-group">
         <p-toast></p-toast>

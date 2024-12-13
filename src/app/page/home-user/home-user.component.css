@@ -1,0 +1,67 @@
+.home-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centraliza o card verticalmente */
+  background-image: url('/assets/imagem/Gym City Sunset.jpeg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%; /* Faz o menubar ocupar toda a largura do cabeçalho */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .p-menubar {
+  background-color: rgba(255, 255, 255, 0.6); /* Fundo branco translúcido */
+  margin-top: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 1350px; /* Ajuste a largura conforme necessário */
+  height: 50px; /* Ajuste a altura conforme necessário */
+  font-size: 16px; /* Ajuste o tamanho da fonte para aumentar ou diminuir o texto */
+}
+
+.home-card {
+  /* Posicionamento central */
+  margin-top: 50px;
+  /* Você pode ajustar o tamanho do card alterando width e height abaixo */
+  min-width: 500px; /* Largura máxima */
+  width: 1300px; /* Largura máxima */
+  min-height: 50px; /* Altura mínima */
+  height: 500px; /* Altura mínima */
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.input-group,
+.button-group {
+  margin: 10px 0;
+}
+
+/* Estilo para redimensionar o card */
+.home-card.large {
+  width: 80%; /* Tamanho grande */
+  height: 400px;
+}
+
+.home-card.small {
+  width: 50%; /* Tamanho pequeno */
+  height: 200px;
+}

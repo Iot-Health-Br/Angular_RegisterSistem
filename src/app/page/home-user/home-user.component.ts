@@ -8,6 +8,7 @@ import {PasswordModule} from "primeng/password";
 import {MenubarModule} from "primeng/menubar";
 import {MenuItem, MessageService} from "primeng/api";
 import {Router} from "@angular/router";
+import {NgSwitch, NgSwitchCase} from "@angular/common";
 
 @Component({
   selector: 'app-home-user',
@@ -19,7 +20,9 @@ import {Router} from "@angular/router";
     PaginatorModule,
     ToastModule,
     PasswordModule,
-    MenubarModule
+    MenubarModule,
+    NgSwitchCase,
+    NgSwitch
   ],
   providers:[MessageService],
   templateUrl: './home-user.component.html',
@@ -27,6 +30,8 @@ import {Router} from "@angular/router";
 })
 export class HomeUserComponent implements OnInit{
   items: MenuItem[] | undefined;
+  activeCard: 'about' | 'infoUser' | undefined;
+  showCard: boolean = false;
 
   constructor(private router: Router, private messageService: MessageService) {}
 
@@ -114,7 +119,8 @@ export class HomeUserComponent implements OnInit{
   }
 
   private showAboutUs() {
-    return undefined;
+    this.showCard = true;
+    this.activeCard = 'about';
   }
 
   private showPhone() {

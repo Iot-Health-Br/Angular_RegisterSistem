@@ -2,17 +2,19 @@
   <header>
     <p-menubar [model]="items" />
   </header>
-  <body>
+  <main> <!-- Substituído body por main para melhor semântica HTML -->
     <div class="home-card">
-      <div class="form-container" >
-        <div class="input-group">
-
-        </div>
-
-        <div class="button-group">
-
+      <div class="form-container">
+        <div [ngSwitch]="activeCard">
+          <div *ngSwitchCase="'infoUser'" class="card-content">
+            <p>Usuário:</p>
+          </div>
+          <div *ngSwitchCase="'about'" class="card-content">
+            <h3>Sobre o Register Sistem</h3>
+            <p>Sistema web single page de cadastro de usuário</p>
+          </div>
         </div>
       </div>
     </div>
-  </body>
+  </main>
 </div>

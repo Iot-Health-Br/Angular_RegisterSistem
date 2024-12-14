@@ -5,45 +5,50 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center; /* Centraliza o card verticalmente */
+  flex-direction: column;
   background-image: url('/assets/imagem/Gym City Sunset.jpeg');
   background-size: cover;
   background-position: center;
-  overflow: hidden;
+  overflow: auto; /* Alterado para auto para permitir rolagem quando necessário */
 }
 
 header {
-  position: absolute;
+  position: sticky; /* Alterado para sticky para melhor comportamento responsivo */
   top: 0;
-  width: 100%; /* Faz o menubar ocupar toda a largura do cabeçalho */
+  width: 100%;
   z-index: 10;
-  display: flex;
-  justify-content: center;
+  padding: 0.5rem;
 }
 
 ::ng-deep .p-menubar {
-  background-color: rgba(255, 255, 255, 0.6); /* Fundo branco translúcido */
-  margin-top: 3px;
-  margin-left: 5px;
-  margin-right: 5px;
-  width: 1350px; /* Ajuste a largura conforme necessário */
-  height: 50px; /* Ajuste a altura conforme necessário */
-  font-size: 16px; /* Ajuste o tamanho da fonte para aumentar ou diminuir o texto */
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  max-width: 1350px;
+  height: auto;
+  min-height: 50px;
+  font-size: clamp(14px, 2vw, 16px); /* Fonte responsiva */
+  margin: 3px auto;
+  padding: 0.5rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
 }
 
 .home-card {
-  /* Posicionamento central */
-  margin-top: 50px;
-  /* Você pode ajustar o tamanho do card alterando width e height abaixo */
-  min-width: 500px; /* Largura máxima */
-  width: 1300px; /* Largura máxima */
-  min-height: 50px; /* Altura mínima */
-  height: 500px; /* Altura mínima */
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  max-width: 1300px;
+  min-height: 450px;
+  height: auto;
+  margin-top: 1rem;
 }
 
 .form-container {
@@ -52,16 +57,28 @@ header {
 
 .input-group,
 .button-group {
-  margin: 10px 0;
+  margin: 0.625rem 0;
 }
 
-/* Estilo para redimensionar o card */
-.home-card.large {
-  width: 80%; /* Tamanho grande */
-  height: 400px;
+/* Media Queries para diferentes tamanhos de tela */
+@media screen and (max-width: 768px) {
+  .home-card {
+    max-width: 100%;
+    min-width: auto;
+    margin: 0.5rem;
+  }
+
+  ::ng-deep .p-menubar {
+    padding: 0.25rem;
+  }
 }
 
-.home-card.small {
-  width: 50%; /* Tamanho pequeno */
-  height: 200px;
+@media screen and (max-width: 480px) {
+  .home-card {
+    padding: 1rem;
+  }
+
+  header {
+    padding: 0.25rem;
+  }
 }

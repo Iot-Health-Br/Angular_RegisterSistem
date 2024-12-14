@@ -1,0 +1,205 @@
+<div class="home-container">
+  <header>
+    <p-menubar [model]="items" />
+  </header>
+  <main> <!-- main é uma melhor semântica HTML -->
+    <div class="home-card">
+      <div class="form-container">
+        <div [ngSwitch]="activeCard">
+          <!--- Registro de Usuário --->
+          <div *ngSwitchCase="'infoUser'" class="card-content">
+          </div>
+          <!--- Dados do Usuário --->
+          <div *ngSwitchCase="'about'" class="card-content">
+            <h3>Sobre o Register Sistem</h3>
+            <p>Sistema web single page de cadastro de usuário</p>
+          </div>
+          <!--- Cadastro do Usuário --->
+          <div *ngSwitchCase="'registerUser'" class="register-card">
+            <p>Cadastro de Usuário</p>
+            <div class="input-group">
+              <!-- Grupo Nome e CPF -->
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="nome" placeholder="Digite seu Nome" class="form-input">
+                </div>
+                <div class="input-field">
+                  <p-inputMask styleClass="form-input" mask="999.999.999-99" [(ngModel)]="cpf" placeholder="Digite seu CPF"></p-inputMask>
+                </div>
+              </div>
+              <!-- Grupo Nascimento, Telefone e Email -->
+              <div class="input-row">
+                <div class="input-field">
+                  <p-inputMask styleClass="primelabels" [(ngModel)]="nascimento" mask="99/99/9999" placeholder="Digite seu Nascimento" slotChar="dd/mm/yyyy"></p-inputMask>
+                </div>
+                <div class="input-field">
+                  <p-inputMask styleClass="form-input" mask="(99)9 9999-9999" [(ngModel)]="telefone" placeholder="Digite seu Telefone"></p-inputMask>
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="email" placeholder="Digite seu e-mail" class="form-input">
+                </div>
+              </div>
+              <!-- Senhas -->
+              <div class="input-row">
+                <div class="input-field">
+                  <p-password styleClass="p-password-input" [(ngModel)]="password" [toggleMask]="true" placeholder="Digite sua Senha" />
+                </div>
+                <div class="input-field">
+                  <p-password styleClass="p-password-input" [(ngModel)]="confirmPassword" [toggleMask]="true" placeholder="Confirme sua Senha" />
+                </div>
+              </div>
+              <!-- Endereço -->
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="address" placeholder="Digite seu Endereço" class="form-input">
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="addressComplement" placeholder="Digite o complemento do endereço" class="form-input">
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="cidade" placeholder="Digite sua Cidade" class="form-input">
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="estado" placeholder="Digite seu Estado" class="form-input">
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="cep" placeholder="Digite seu CEP" class="form-input">
+                </div>
+              </div>
+            </div>
+            <div class="button-group">
+              <p-toast></p-toast>
+              <p-button
+                label="Register"
+                icon="pi pi-check"
+                styleClass="button-register"
+                (onClick)="onRegister()">
+              </p-button>
+
+              <p-button
+                label="Cancel"
+                icon="pi pi-times"
+                styleClass="button-cancel"
+                (onClick)="cancelRegister()">
+              </p-button>
+            </div>
+          </div>
+          <!--- Cadastro do Adm --->
+          <div *ngSwitchCase="'registerAdm'" class="register-card">
+            <p>Cadastro de Usuário</p>
+            <div class="input-group">
+              <!-- Grupo Nome e CPF -->
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="nome" placeholder="Digite seu Nome" class="form-input">
+                </div>
+                <div class="input-field">
+                  <p-inputMask styleClass="form-input" mask="999.999.999-99" [(ngModel)]="cpf" placeholder="Digite seu CPF"></p-inputMask>
+                </div>
+              </div>
+              <!-- Grupo Nascimento, Telefone e Email -->
+              <div class="input-row">
+                <div class="input-field">
+                  <p-inputMask styleClass="primelabels" [(ngModel)]="nascimento" mask="99/99/9999" placeholder="Digite seu Nascimento" slotChar="dd/mm/yyyy"></p-inputMask>
+                </div>
+                <div class="input-field">
+                  <p-inputMask styleClass="form-input" mask="(99)9 9999-9999" [(ngModel)]="telefone" placeholder="Digite seu Telefone"></p-inputMask>
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="email" placeholder="Digite seu e-mail" class="form-input">
+                </div>
+              </div>
+              <!-- Senhas -->
+              <div class="input-row">
+                <div class="input-field">
+                  <p-password styleClass="p-password-input" [(ngModel)]="password" [toggleMask]="true" placeholder="Digite sua Senha" />
+                </div>
+                <div class="input-field">
+                  <p-password styleClass="p-password-input" [(ngModel)]="confirmPassword" [toggleMask]="true" placeholder="Confirme sua Senha" />
+                </div>
+                <div class="input-field">
+                  <p-treeSelect
+                    class="md:w-20rem w-full"
+                    containerStyleClass="w-full"
+                    [(ngModel)]="selectedCategoria"
+                    [options]="categoria"
+                    placeholder="Selecione Uma Categoria"
+                    selectionMode="single"
+                    [metaKeySelection]="false">
+                  </p-treeSelect>
+                </div>
+              </div>
+              <!-- Endereço -->
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="address" placeholder="Digite seu Endereço" class="form-input">
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="addressComplement" placeholder="Digite o complemento do endereço" class="form-input">
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="cidade" placeholder="Digite sua Cidade" class="form-input">
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="estado" placeholder="Digite seu Estado" class="form-input">
+                </div>
+                <div class="input-field">
+                  <input type="text" pInputText [(ngModel)]="cep" placeholder="Digite seu CEP" class="form-input">
+                </div>
+              </div>
+            </div>
+            <div class="button-group">
+              <p-toast></p-toast>
+              <p-button
+                label="Register"
+                icon="pi pi-check"
+                styleClass="button-register"
+                (onClick)="onRegister()">
+              </p-button>
+
+              <p-button
+                label="Cancel"
+                icon="pi pi-times"
+                styleClass="button-cancel"
+                (onClick)="cancelRegister()">
+              </p-button>
+            </div>
+          </div>
+          <div *ngSwitchCase="'userList'" class="register-card">
+            <p-table class="user-table"
+                     [scrollable]="true"
+                     scrollHeight="400px"
+                     [(selection)]="selectedProduct"
+                     dataKey="code"
+                     [tableStyle]="{'min-width': '50rem'}">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th style="width: 4rem"></th>
+                  <th>ID</th>
+                  <th>Usuario</th>
+                  <th>Nome</th>
+                  <th>Categoria</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>
+                    <p-tableRadioButton [value]="product" />
+                  </td>
+                  <td>{{product.id}}</td>
+                  <td>{{product.cpf}}</td>
+                  <td>{{product.nome}}</td>
+                  <td>{{product.roles}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
